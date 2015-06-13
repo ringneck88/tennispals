@@ -1,0 +1,508 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"fon",
+				"font-style"
+			],
+			[
+				"num",
+				"numtires"
+			],
+			[
+				"ps",
+				"position"
+			],
+			[
+				"tp",
+				"top"
+			],
+			[
+				"Fly",
+				"FlyWithWings"
+			],
+			[
+				"ext",
+				"extends"
+			],
+			[
+				"isV",
+				"isValidPassword"
+			],
+			[
+				"in_",
+				"is_numeric"
+			],
+			[
+				"add",
+				"addTwoNumbers"
+			],
+			[
+				"array_",
+				"array_diff"
+			],
+			[
+				"pr",
+				"preg_match"
+			],
+			[
+				"html",
+				"html	html"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"p",
+				"position"
+			],
+			[
+				"BA",
+				"background-color"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"for",
+				"for	for …"
+			],
+			[
+				"f",
+				"for	for …"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"test",
+				"mcrypt_enc_self_test"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"blue",
+				"blueviolet"
+			],
+			[
+				"array_key",
+				"array_key_exists"
+			],
+			[
+				"o",
+				"overflow"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"els",
+				"else"
+			],
+			[
+				"product",
+				"product_id"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"product_",
+				"product_quantity"
+			],
+			[
+				"pro",
+				"Prouducts"
+			],
+			[
+				"is_i",
+				"is_int"
+			],
+			[
+				"P",
+				"product_selector_builder"
+			],
+			[
+				"bacgro",
+				"background-color"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"bak",
+				"background-color"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"l",
+				"link	Tag"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"backgro",
+				"background-color"
+			],
+			[
+				"coo",
+				"color"
+			],
+			[
+				"array_ke",
+				"array_key_exists"
+			],
+			[
+				"arry_p",
+				"array_pop"
+			],
+			[
+				"a",
+				"amnals_text"
+			],
+			[
+				"i",
+				"index"
+			],
+			[
+				"print",
+				"print_r"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "in",
+		"selected_items":
+		[
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: html"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"insat",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Disable Package"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/kelly/Sites/tennispals"
+	],
+	"file_history":
+	[
+		"/home/kelly/Sites/localhost/ajax/main.js",
+		"/home/kelly/Sites/localhost/ajax/foo.php",
+		"/home/kelly/Sites/localhost/ajax/ajax.html",
+		"/home/kelly/Sites/m4/JS/index.html",
+		"/home/kelly/Sites/m4/JS/js/main.js",
+		"/home/kelly/Sites/m4/JS/css/styles.css",
+		"/home/kelly/Sites/m4/JS/js/m4_js.sublime-project",
+		"/home/kelly/Sites/m4/JS/styles.css",
+		"/home/kelly/Sites/m4/JS/main.js",
+		"/home/kelly/Sites/mvm/application.php",
+		"/home/kelly/Downloads/Test 1.txt",
+		"/home/kelly/Sites/mvm/index.php",
+		"/home/kelly/Hosts/mvm.conf",
+		"/home/kelly/Hosts/m3.conf",
+		"/home/kelly/Sites/localhost/jQuery/styles.css",
+		"/home/kelly/Sites/localhost/staticoop.php",
+		"/home/kelly/Sites/localhost/jQuery/todo.js",
+		"/home/kelly/Sites/localhost/jQuery/todo.html",
+		"/home/kelly/Sites/localhost/index_old.php",
+		"/home/kelly/Sites/localhost/jQuery-Workshop/server.json",
+		"/home/kelly/Sites/localhost/jQuery-Workshop/main.js",
+		"/home/kelly/Sites/localhost/index.php",
+		"/home/kelly/Sites/localhost/javascript/functions/main.js",
+		"/home/kelly/Sites/localhost/javascript/functions/functions.html",
+		"/home/kelly/Sites/localhost/javascript/Object Literals/index.html",
+		"/home/kelly/Sites/localhost/trycatch.php",
+		"/home/kelly/Sites/localhost/javascript/main.js",
+		"/home/kelly/Sites/localhost/javascript/index.html",
+		"/home/kelly/Sites/blog/_posts/2015-04-29-helloworld.markdown",
+		"/home/kelly/Sites/blog/css/main.scss",
+		"/home/kelly/Sites/localhost/style.css",
+		"/home/kelly/Sites/blog/_layouts/default.html",
+		"/home/kelly/Sites/blog/_includes/footer.html",
+		"/home/kelly/Sites/blog/_includes/header.html",
+		"/home/kelly/Sites/localhost/login.php",
+		"/home/kelly/Sites/localhost/food_list class exercize.php",
+		"/home/kelly/Sites/localhost/index.html",
+		"/home/kelly/Sites/localhost/style_lightbox.css",
+		"/home/kelly/Sites/localhost/oop.php",
+		"/home/kelly/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/kelly/Sites/m3/CSS/style.css",
+		"/home/kelly/Sites/m3/CSS/index.html",
+		"/home/kelly/Sites/m3/m3_CSS.sublime-project",
+		"/home/kelly/.config/sublime-text-3/Packages/AdvancedNewFile/README.md",
+		"/home/kelly/.config/sublime-text-3/Packages/AdvancedNewFile/AdvancedNewFile.sublime-settings",
+		"/home/kelly/Sites/localhost/mediaobject.php",
+		"/home/kelly/Sites/localhost/styles.css",
+		"/home/kelly/Sites/m2/browse.php",
+		"/home/kelly/Sites/m2/style.css",
+		"/home/kelly/Sites/m2/head_links.php",
+		"/home/kelly/Sites/m2/view.php",
+		"/home/kelly/Sites/m2/contact.php",
+		"/home/kelly/Sites/m2/header.php",
+		"/home/kelly/Sites/m2/index.php",
+		"/home/kelly/.config/sublime-text-3/Packages/Emmet/Emmet.sublime-settings",
+		"/home/kelly/.config/sublime-text-3/Packages/User/Emmet.sublime-settings",
+		"/home/kelly/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/kelly/Sites/m2/products.php",
+		"/home/kelly/Sites/m2/footer.php",
+		"/home/kelly/Sites/localhost/css_resets_infertince.html",
+		"/home/kelly/Sites/m2/normalize.css",
+		"/home/kelly/Sites/m2/background.jpg",
+		"/home/kelly/Sites/m2/README.md",
+		"/home/kelly/Sites/localhost/Error_handiling.php",
+		"/home/kelly/Sites/m2/background.png",
+		"/home/kelly/Sites/localhost/css_box_model/style.css",
+		"/home/kelly/Sites/localhost/phpinfo.php"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"â€‹",
+			"â€‹\n",
+			"());\n",
+			"filter",
+			"$_SESSION['filter']",
+			"newjobid",
+			"add",
+			"\"W#",
+			"\n",
+			" \n",
+			" \n\n",
+			"\n\n",
+			">')",
+			"}",
+			"	<",
+			">\";",
+			" \"",
+			"\" ",
+			"\"",
+			"getFoodStatus",
+			"	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>\n",
+			"<?php require_once('header.php')?>",
+			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod exercitationem non, aliquam excepturi odit ad quidem blanditiis ut porro suscipit, accusamus esse! Dolorem reiciendis, quis fugit repellat ducimus placeat, minus.\n",
+			"link"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\"W\n",
+			"\n",
+			"",
+			"#"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "tennispals.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Sites/localhost/m4_POS.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 212.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
