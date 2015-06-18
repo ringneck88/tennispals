@@ -20,13 +20,13 @@ class UserController extends Controller {
 
 	public function viewAll() {
 		$users = User::all();
-		return view('allusers',[ 'users'=>$users ]);
+		return view('all_users',[ 'users'=>$users ]);
 
 	}
 
 	public function view($id) {
 		$user = User::find($id);
-		return view('user',[ 'user'=>$user ]);
+		return view('/users/user',[ 'user'=>$user ]);
 	}
 
 	public function update($id) {

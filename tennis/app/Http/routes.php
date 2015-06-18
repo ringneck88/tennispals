@@ -62,15 +62,15 @@ Route::get('message/{id}/delete', 'messageController@delete');
    Match routes
 ****************************************/
 
-Route::get('comments', 'matchController@viewAll');
-Route::get('match/create', 'matchController@create');
-Route::post('match/create', 'matchController@postCreate');
-Route::get('match/{id}', 'matchController@view');
-Route::get('match/{id}/by_track', 'matchController@viewAllByTrack');
-Route::get('match/{id}/by_user', 'matchController@viewAllByUser');
-Route::get('match/{id}/update', 'matchController@update');
-Route::post('match/{id}/update', 'matchController@postUpdate');
-Route::get('match/{id}/delete', 'matchController@delete');
+Route::get('matches', 'MatchController@viewAll');
+Route::get('match/create', 'MatchController@create');
+Route::post('match/create', 'MatchController@postCreate');
+Route::get('match/{id}', 'MatchController@view');
+Route::get('match/{id}/by_track', 'MatchController@viewAllByTrack');
+Route::get('match/{id}/by_user', 'MatchController@viewAllByUser');
+Route::get('match/{id}/update', 'MatchController@update');
+Route::post('match/{id}/update', 'MatchController@postUpdate');
+Route::get('match/{id}/delete', 'MatchController@delete');
 
 /****************************************
    location routes
@@ -80,7 +80,7 @@ Route::get('locations', 'LocationController@viewAll');
 Route::get('location/create', 'LocationController@create');
 Route::post('location/create', 'LocationController@postCreate');
 Route::get('location/{id}', 'LocationController@view');
-Route::get('location/{id}/by_match', 'LocationController@viewAllByMatch');
+Route::get('location/{id}/by_Match', 'LocationController@viewAllByMatch');
 Route::get('location/{id}/by_user', 'LocationController@viewAllByUser');
 Route::get('location/{id}/update', 'LocationController@update');
 Route::post('location/{id}/update', 'LocationController@postUpdate');

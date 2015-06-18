@@ -10,9 +10,9 @@ class LocationController extends Controller {
 	
 
 	public function viewAll() {
-		$location = Location::all();
+		$locations = Location::all();
 		return view('alllocation',
-			['locations' => $location]);
+			['locations' => $locations]);
 	}
 
 	public function viewAllByMatch($id) {

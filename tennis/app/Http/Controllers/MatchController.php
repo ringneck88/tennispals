@@ -4,136 +4,97 @@
 use Request;
 use App\Models\Match;
 use App\User;
+use App\Models\Location;
+use App\Http\Controllers\Controller;
+// use Illuminate\Http\Request;
+// use Illuminate\Routing\Controller;
+use Auth;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-class LocationController extends Controller {
+class MatchController extends Controller {
 
 	
 
 	public function viewAll() {
-		$location = Location::all();
-		return view('alllocation',
-			['locations' => $location]);
+		$match = Match::all();
+		return view('match.allmatch',
+			['matches' => $match]);
 	}
 
 	public function viewAllByMatch($id) {
-		$location = Location::where('match_id', '=', $id)->get();
-		return view('all_location',
-			['location' => $location]);
+		$match = Match::where('match_id', '=', $id)->get();
+		return view('all_match',
+			['match' => $match]);
 	}
 
 	public function viewAllByUser($id) {
-		$location = Location::where('user_id', '=', $id)->get();
-		return view('alllocation',
-			['location' => $location]);
+		$match = Match::where('user_id', '=', $id)->get();
+		return view('allmatch',
+			['match' => $match]);
 	}
 
 	public function view($id) {
-		$location = Location::find($id);
-		return view('location',
-			['location' => $location]);
+		$match = Match::find($id);
+		return view('match',
+			['match' => $match]);
 	}
 
 	public function create() {
-		return view('addlocation', []);
+		$locations = Location::all();
+
+		return view('/match/addmatch', ['locations' => $locations]);
 	}
 
 	public function postCreate() {
 
-		$address = Request::input('address') .',' . Request::input('city') .',' . Request::input('st');
-		$geo = $this->geocode($address);
-		// dd($address);
+		$match = new Match();
+		$match->user_id = Auth::user()->id;
+		$match->comment = Request::input('comment');
+		$match->match_date = Request::input('match_date');
+		$match->match_time = Request::input('match_time');
+		$match->location_id = Request::input('location_id');
+		$match->opponent_id = Request::input('opponent_id');
+		$match->open_date_time = Request::input('open_date_time');
+		$match->close_date_time = Request::input('close_date_time');
+		$match->ranking = Request::input('ranking');
+		$match->gender = Request::input('gender');
+		$match->save();
 
-		$location = new Location();
-		$location->name = Request::input('name');
-		$location->comment = Request::input('comment');
-		$location->address = Request::input('address');
-		$location->city = Request::input('city');
-		$location->st = Request::input('st');
-		$location->zip = Request::input('zip');
-		$location->lat = $geo[0];
-		$location->long = $geo[1];
-		$location->save();
-
-		return redirect('locations');
+		return redirect('/matches');
 	}
 
 	public function update($id) {
-		$location = Location::find($id);
+		$match = Match::find($id);
+		$locations = Location::all();
 		
-		return view('updatelocation',
-			['location' => $location]);
+		return view('/match/updatematch',
+			['match' => $match, 'locations' => $locations]);
 	}
 
 	public function postUpdate($id) {
 
-		$location = Location::find($id);
-		$location->name = Request::input('name');
-		$location->comment = Request::input('comment');
-		$location->address = Request::input('address');
-		$location->city = Request::input('city');
-		$location->st = Request::input('st');
-		$location->zip = Request::input('zip');
-		$location->lat = Request::input('lat');
-		$location->long = Request::input('long');
-		$location->save();
+		$match = Match::find($id);
+		$match->user_id = Auth::user()->id;
+		$match->comment = Request::input('comment');
+		$match->match_date = Request::input('match_date');
+		$match->match_time = Request::input('match_time');
+		$match->location_id = Request::input('location_id');
+		$match->opponent_id = Request::input('opponent_id');
+		$match->open_date_time = Request::input('open_date_time');
+		$match->close_date_time = Request::input('close_date_time');
+		$match->ranking = Request::input('ranking');
+		$match->gender = Request::input('gender');
+		$match->save();
 
-		return redirect('locations');
+		return redirect('matches');
 	}
 
 	public function delete($id) {
-		$location = Location::find($id);
-		$location->delete($id);
+		$match = Match::find($id);
+		$match->delete($id);
 
-		return redirect('locations');
+		return redirect('matches');
 	}
-
-
-// function to geocode address, it will return false if unable to geocode address
-function geocode($address){
- 
-    // url encode the address
-    $address = urlencode($address);
-     
-    // google map geocode api url
-    $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address={$address}";
- 
-    // get the json response
-    $resp_json = file_get_contents($url);
-     
-    // decode the json
-    $resp = json_decode($resp_json, true);
- 
-    // response status will be 'OK', if able to geocode given address 
-    if($resp['status']=='OK'){
- 
-        // get the important data
-        $lati = $resp['results'][0]['geometry']['location']['lat'];
-        $longi = $resp['results'][0]['geometry']['location']['lng'];
-        $formatted_address = $resp['results'][0]['formatted_address'];
-         
-        // verify if data is complete
-        if($lati && $longi && $formatted_address){
-         
-            // put the data in the array
-            $data_arr = array();            
-             
-            array_push(
-                $data_arr, 
-                    $lati, 
-                    $longi, 
-                    $formatted_address
-                );
-             
-            return $data_arr;
-             
-        }else{
-            return false;
-        }
-         
-    }else{
-        return false;
-    }
-}
 
 
 }
