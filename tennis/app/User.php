@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Models;
+use App\Models\Location;
+use App\Models\Match; 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -32,4 +35,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+    public function match() {
+
+        return $this->hasMany('App\Models\Match'); 
+
+    }
 }

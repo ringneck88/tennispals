@@ -9,10 +9,11 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Available Open Matches</div>
 				<div class="panel-body">
-				<table>
+				<div class="table-responsive">
+				<table class="table table-striped table-hover">
 
 						<tr>
-							<th>Match ID</th>
+							<th>Find Match</th>
 							<th>User ID</th>
 							<th>Confirmed Date</th>
 							<th>Confirmed Time</th>
@@ -29,8 +30,8 @@
 
 					@foreach($matches as $match)
 					<tr>
-						<td><a href="match/{{$match->id}}">{{ $match->id }}</a></td>
-						<td><a href="users/{{$match->user_id}}">{{ $match->user_id}}</a></td>
+						<td><a href="/match/{{ $match->id }}/findmatchesfor">find matches</a></td>
+						<td><a href="/users/{{$match->user_id}}">{{ $match->user_id}}</a></td>
 						<td>{{ $match->match_date }}</td>
 						<td>{{ $match->time }}</td>
 						<td>{{ $match->location_id }}</td>
@@ -40,20 +41,21 @@
 						<td>{{ $match->comment }}</td>
 						<td>{{ $match->open_date_time }}</td>
 						<td>{{ $match->close_date_time }}</td>
-						<td><a href="/match/{{$match->id}}/update">Edit</a></td>
-						<td>
-							
-								<form action="match/{{$match->id}}/delete" method="GET">
-									<input type="hidden" name="_method" value="DELETE">
-									<input type="hidden" name="_token" value="{{ csrf_token() }}">
-									<input type="hidden" name="id" value="{{$match->id}}">
-									<button>Delete</button>
-								</form>
-						
+						<td>@if ( Auth::user()->id == $match->user_id )
+							<a href="/match/{{$match->id}}/update">Edit</a>
+							@endif
 						</td>
-					</tr>
+						<td>
+							 @if ( Auth::user()->id == $match->user_id )
+							 <a href="/match/{{$match->id}}/delete">Remove</a>
+
+							@endif
+						</td>
+
+						</tr>
 					@endforeach
 				</table>
+				</div>
 				<a href="/match/create">add match</a>
 				</div>
 				<div id="map"></div>

@@ -39,7 +39,10 @@ class Location extends Eloquent {
 	// }
 
 		
-
+public function match()
+    {
+        return $this->hasMany('App\Models\Match');
+    }
 
 
 }

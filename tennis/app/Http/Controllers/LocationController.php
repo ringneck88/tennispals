@@ -4,6 +4,7 @@
 use Request;
 use App\Models\Location;
 use App\User;
+use Auth;
 
 class LocationController extends Controller {
 
@@ -21,10 +22,10 @@ class LocationController extends Controller {
 			['location' => $location]);
 	}
 
-	public function viewAllByUser($id) {
-		$location = Location::where('user_id', '=', $id)->get();
-		return view('alllocation',
-			['location' => $location]);
+	public function viewAllByUser() {
+		$locations = Location::where('user_id', '=', Auth::user()->id)->get();
+			return view('alllocation',
+			['locations' => $locations]);
 	}
 
 	public function view($id) {
@@ -41,10 +42,10 @@ class LocationController extends Controller {
 
 		$address = Request::input('address') .',' . Request::input('city') .',' . Request::input('st');
 		$geo = $this->geocode($address);
-		// dd($address);
 
 		$location = new Location();
 		$location->name = Request::input('name');
+		$location->user_id = Auth::user()->id;
 		$location->comment = Request::input('comment');
 		$location->address = Request::input('address');
 		$location->city = Request::input('city');

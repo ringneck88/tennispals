@@ -3,6 +3,15 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"path": "/home/kelly/Sites/m3/CSS"
+		},
+		{
+			"path": "/home/kelly/Sites/rockitradio/rockitradio"
+		},
+		{
+			"path": "/home/kelly/Sites/laravel_crud"
 		}
 	]
 }

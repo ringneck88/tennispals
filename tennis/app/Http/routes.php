@@ -66,11 +66,13 @@ Route::get('matches', 'MatchController@viewAll');
 Route::get('match/create', 'MatchController@create');
 Route::post('match/create', 'MatchController@postCreate');
 Route::get('match/{id}', 'MatchController@view');
-Route::get('match/{id}/by_track', 'MatchController@viewAllByTrack');
 Route::get('match/{id}/by_user', 'MatchController@viewAllByUser');
+Route::get('json/match/{id}/by_user', 'MatchController@jsonViewAllByUser');
+Route::get('match/{id}/findmatchesfor', 'MatchController@matchByMatch');
 Route::get('match/{id}/update', 'MatchController@update');
 Route::post('match/{id}/update', 'MatchController@postUpdate');
 Route::get('match/{id}/delete', 'MatchController@delete');
+Route::get('ajax/match/{id}/delete', 'MatchController@ajaxdelete');
 
 /****************************************
    location routes
@@ -79,9 +81,9 @@ Route::get('match/{id}/delete', 'MatchController@delete');
 Route::get('locations', 'LocationController@viewAll');
 Route::get('location/create', 'LocationController@create');
 Route::post('location/create', 'LocationController@postCreate');
+Route::get('location/user', 'LocationController@viewAllByUser');
 Route::get('location/{id}', 'LocationController@view');
 Route::get('location/{id}/by_Match', 'LocationController@viewAllByMatch');
-Route::get('location/{id}/by_user', 'LocationController@viewAllByUser');
 Route::get('location/{id}/update', 'LocationController@update');
 Route::post('location/{id}/update', 'LocationController@postUpdate');
 Route::get('location/{id}/delete', 'LocationController@delete');

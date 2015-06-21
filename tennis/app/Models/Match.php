@@ -9,6 +9,9 @@ use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Eloquent;
 use App;
+use App\Models;
+use App\Models\Location;
+use App\Models\Match;
 
 class Match extends Eloquent {
     
@@ -24,22 +27,19 @@ class Match extends Eloquent {
 
 	}
 
-	// 	return $this->hasMany('App\Models\TrackComment');
-
-	// }
 
 
-	// public function user(){
+	public function location(){
 
-	// 	return $this->belongsTo('App\User');
+		return $this->belongsTo('App\Models\Location');
 
-	// }
+	}
 
-	// public function tracks(){
+	public function user(){
 
-	// 	return $this->belongsTo('App\Models\TrackComment');
+		return $this->belongsTo('App\User');
 
-	// }
+	}
 
 		
 

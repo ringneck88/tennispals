@@ -1,0 +1,123 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+* + * {
+	margin-top: 0;
+}
+
+body {
+	font-size: 18px;
+	font-weight: 300;
+	background-color: #D7E1E7;
+}
+
+main {
+	background-color: blueviolet;
+}
+
+header {
+	text-align: justify;
+	width:100%;
+	height: 60px;
+	background-color: white;
+	padding-top: 15px;
+}
+
+header:after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 0;
+    font-size:0;
+    line-height:0;
+}
+
+nav {
+	width: 100%;
+	height: 50px;
+	display: inline-block;
+	text-align: center;
+	background-color:black;
+	vertical-align: bottom;
+	color:white;
+
+}
+
+h1 {
+	vertical-align: middle;
+}
+
+
+.holder {
+	margin:auto;
+	width:800px;
+	background-color: gray;
+}
+
+.logo {
+	font-size: 18px;
+	font-weight: 300;
+	background-color: #D7E1E7;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.login {
+	display: inline-block;
+}
+
+.hero {
+	background-color: crimson;
+	height: 400px;
+
+}
+
+.middlesection {
+	background-color: pink;
+	/*height: 250px;*/
+}
+
+.bottomsection {
+	background-color: beige;
+	height: 700px;
+
+}
+
+footer {
+	background-color:black;
+	color:white;
+	height: 50px;
+}
+
+.middlesection {
+	text-align: center;
+}
+
+div.middlesection div:not(:first-child) {
+	padding: 5px;
+	vertical-align: top;
+}
+
+.middlesection .photo {
+	background-color:red;
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+	margin: 5px 30px;
+}
+
+.middlesection .tile {
+	display: inline-block;
+	background-color:purple;
+	margin: 5px 10px;
+	width: 225px;
+}
+
+.number {
+	float: left;
+	font-size: 3em ;
+	padding: 5px;
+	border-right: 5px solid black;
+}

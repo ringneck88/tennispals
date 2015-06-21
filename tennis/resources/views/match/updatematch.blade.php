@@ -18,7 +18,7 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="/match/{{$match->id}}/update" oninput="amount.value=ranking.value">
+					<form class="form-horizontal" role="form" method="POST" action="/match/{{$match->id}}/update" oninput="amount.value=ranking.value"  onsubmit="window.close();">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						
 
@@ -47,12 +47,12 @@
 							</div>
 						</div>
 
-						<div class="form-group">	
+						{{-- <div class="form-group">	
 							<label class="col-md-4 control-label">Ranking</label>
 							<div class="col-md-6">
 								<input type="number" class="form-control" name="ranking" value="{{ $match->ranking }}">
 							</div>
-						</div>
+						</div> --}}
 
 						<div class="form-group">	
 							<label class="col-md-4 control-label">Gender</label>
