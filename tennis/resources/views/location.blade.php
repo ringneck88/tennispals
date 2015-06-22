@@ -46,7 +46,7 @@
 					
 				</table>
 				<div id="map"></div>
-				<a href="/locations/create">Add Location</a><br>
+				<a href="/location/create">Add Location</a><br>
 				<a href="/locations">List All Locations</a><br>
 				
 				</div>

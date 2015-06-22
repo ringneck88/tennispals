@@ -18,7 +18,7 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/match/create') }}" oninput="amount.value=ranking.value" onsubmit="window.close();">
+					<form class="form-horizontal" role="form" method="POST" action="/match/create" onsubmit="window.close();">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						
 
@@ -72,7 +72,7 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary" value="close window">
+								<button type="submit" class="btn btn-primary">
 									Add Match Request
 								</button>
 							</div>

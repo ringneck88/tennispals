@@ -27,7 +27,7 @@ class MatchController extends Controller {
 		$match = Match::where('id', '=', $id)->first();
 		$matches =Match::where('user_id' , '!=' , $currentuser );	//so not matches from current user	
 		$matches  = $matches->where('id' , '!=' , $match->id );		//remove the event we are finding matches for from the list
-		if($match->gender !=  3){	
+		if($match->gender !=  'n'){	
 			$matches  = $matches->where('gender' , '=' , $match->gender);
 		};
 		$matches = $matches->whereBetween('ranking', [($match->ranking - 1), ($match->ranking + 1)]);
@@ -41,6 +41,25 @@ class MatchController extends Controller {
 			['matches' => $matches]);
 	}
 
+	public function jsonmatchByMatch($id) {
+		$currentuser = Auth::user()->id;
+		$match = Match::where('id', '=', $id)->first();
+		$matches =Match::where('user_id' , '!=' , $currentuser );	//so not matches from current user	
+		$matches  = $matches->where('id' , '!=' , $match->id );		//remove the event we are finding matches for from the list
+		
+		if($match->gender !=  'n'){	
+			$matches  = $matches->where('gender' , '=' , $match->gender);
+		};
+		
+		$matches = $matches->whereBetween('ranking', [($match->ranking - 1), ($match->ranking + 1)]);			
+		$matches = $matches->whereBetween('open_date_time', [$match->open_date_time,  $match->close_date_time]);
+		$matches = $matches->whereBetween('close_date_time', [$match->open_date_time,  $match->close_date_time]);
+				
+		$matches = $matches->get();
+		// dd($matches);
+		return  $matches;
+	}
+
 	public function viewAllByUser($id) {
 		$match = Match::where('user_id', '=', $id)->get();
 
@@ -50,7 +69,7 @@ class MatchController extends Controller {
 
 	public function jsonViewAllByUser($id) {
 		$match = Match::with('location')->with('user')->where('user_id', '=', $id)->get();
-		// $match= $match->location->name->get();
+		
 		return  $match;
 	}
 
@@ -67,7 +86,7 @@ class MatchController extends Controller {
 	}
 
 	public function postCreate() {
-
+echo "boo";
 		$match = new Match();
 		$match->user_id = Auth::user()->id;
 		$match->comment = Request::input('comment');
@@ -77,7 +96,7 @@ class MatchController extends Controller {
 		$match->opponent_id = Request::input('opponent_id');
 		$match->open_date_time = Request::input('open_date_time');
 		$match->close_date_time = Request::input('close_date_time');
-		$match->ranking = Auth::user()->id;
+		$match->ranking = Auth::user()->ranking;
 		$match->gender = Request::input('gender');
 		$match->save();
 
@@ -103,7 +122,7 @@ class MatchController extends Controller {
 		$match->opponent_id = Request::input('opponent_id');
 		$match->open_date_time = Request::input('open_date_time');
 		$match->close_date_time = Request::input('close_date_time');
-		$match->ranking = Auth::user()->id;;
+		$match->ranking = Auth::user()->ranking;
 		$match->gender = Request::input('gender');
 		$match->save();
 
@@ -118,6 +137,7 @@ class MatchController extends Controller {
 	}
 
 	public function ajaxdelete($id) {
+		
 		$match = Match::find($id);
 		$match->delete($id);
 

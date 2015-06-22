@@ -41,7 +41,10 @@ class Match extends Eloquent {
 
 	}
 
-		
+		 public function getGenderAttribute($value)
+    {
+        return ucfirst($value);
+    }
 
 
 

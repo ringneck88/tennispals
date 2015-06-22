@@ -18,7 +18,7 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="/match/{{$match->id}}/update" oninput="amount.value=ranking.value"  onsubmit="window.close();">
+					<form class="form-horizontal" role="form" method="POST" action="/match/{{$match->id}}/update"  onsubmit="window.close();">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						
 
@@ -57,7 +57,7 @@
 						<div class="form-group">	
 							<label class="col-md-4 control-label">Gender</label>
 							<div class="col-md-6">
-								<input type="radio" name="gender" value="1" <?php if ( $match->gender == 1) echo 'checked'?> >Male <input type="radio" name="gender" value="0" <?php if ($match->gender == 0) echo 'checked'?>>Female <input type="radio" name="gender" value="3" <?php if ( $match->gender == 3) echo 'checked'?> >Any
+								<input type="radio" name="gender" value="m" <?php if ( $match->gender == 1) echo 'checked'?> >Male <input type="radio" name="gender" value="f" <?php if ($match->gender == 0) echo 'checked'?>>Female <input type="radio" name="gender" value="n" <?php if ( $match->gender == 3) echo 'checked'?> >Any
 							</div>
 						</div>
 
