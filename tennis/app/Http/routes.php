@@ -65,20 +65,25 @@ Route::get('message/{id}/delete', 'messageController@delete');
 Route::get('matches', 'MatchController@viewAll');
 Route::get('match/create', 'MatchController@create');
 Route::post('match/create', 'MatchController@postCreate');
+Route::post('match/{id}/makechallenge', 'MatchController@makeChallenge');
+Route::get('json/match/challenges', 'MatchController@jsonChallenge');
+Route::get('json/matches/confirmed', 'MatchController@jsonConfirmed');
 Route::get('match/{id}/findmatchesfor', 'MatchController@matchByMatch');
 Route::get('match/{id}/by_user', 'MatchController@viewAllByUser');
 Route::get('match/{id}', 'MatchController@view');
 Route::get('json/match/{id}/by_user', 'MatchController@jsonViewAllByUser');
-Route::get('json/match/{id}/findmatchesfor', 'MatchController@jsonmatchByMatch');
+Route::get('json/match/{id}/findmatchesfor', 'MatchController@jsonMatchByMatch');
 Route::get('match/{id}/update', 'MatchController@update');
 Route::post('match/{id}/update', 'MatchController@postUpdate');
-Route::get('ajax/match/{id}/delete', 'MatchController@ajaxdelete');
+Route::get('ajax/match/{id}/delete', 'MatchController@ajaxDelete');
+Route::get('ajax/match/{id}/acceptchallenge', 'MatchController@ajaxAcceptChallenge');
 Route::get('match/{id}/delete', 'MatchController@delete');
 
 /****************************************
    location routes
 ****************************************/
 
+Route::get('json/locations', 'LocationController@jsonViewAll');
 Route::get('locations', 'LocationController@viewAll');
 Route::get('location/create', 'LocationController@create');
 Route::post('location/create', 'LocationController@postCreate');

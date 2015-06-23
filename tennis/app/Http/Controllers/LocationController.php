@@ -16,6 +16,10 @@ class LocationController extends Controller {
 			['locations' => $locations]);
 	}
 
+	public function jsonViewAll() {
+		return $locations = Location::all();
+	}
+
 	public function viewAllByMatch($id) {
 		$location = Location::where('match_id', '=', $id)->get();
 		return view('all_location',

@@ -26,6 +26,7 @@
 							<th>Close Date Time</th>
 							<th>Update</th>
 							<th>Delete</th>
+							<th>Challenge</th>
 						</tr>
 
 					@foreach($matches as $match)
@@ -51,6 +52,15 @@
 
 							@endif
 						</td>
+						<td>
+					<form class="form-horizontal" role="form" method="POST" action="/match/{{$match->id}}/makechallenge" >
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input type="datetime-local" class="form-control" name="match_date_time" value="{{ $match->prettydate($match->match_date_time)  }}">
+					<button type="submit" class="btn btn-xs">
+						Challenge
+					</button>
+					</form>
+				</td>
 
 						</tr>
 					@endforeach
