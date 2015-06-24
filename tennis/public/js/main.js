@@ -4,6 +4,19 @@ $(function () {
 	getmatchreq();
 	getLocations();
 	getChallenges();
+   
+    $(document).on("click", "a.acptchallenge", function(e) {
+	    e.preventDefault();
+		var xurl = $(this).attr('href');
+	
+	    $.ajax({
+			url: xurl ,
+			success: function (response) {
+			getChallenges();
+		}
+
+	});
+	});
 
 	$(document).on("click", "a.find", function(e) {
 		
@@ -24,17 +37,6 @@ $(function () {
 	}
 	);
 
-    $(document).on("click", "a.acptchallenge", function(e) {
-	    e.preventDefault();
-		var xurl = $(this).attr('href');
-	    
-	    $.ajax({
-			url: xurl ,
-			success: function (response) {
-			getChallenges();
-		}
-	});
-	});
 });
 
 
@@ -52,8 +54,8 @@ function comfirmed() {
 		 
 		$.ajax({
 		url: '/json/matches/confirmed',
-		success: function (data) {
-		resultsPlaceholder.html(template({'response':data}));
+		success: function (response) {
+			resultsPlaceholder.html(template({'response':response}));
 		}
 		});
 }
@@ -67,8 +69,8 @@ function getChallenges() {
 		 
 		$.ajax({
 		url: '/json/match/challenges',
-		success: function (data) {
-		resultsPlaceholder.html(template({'response':data}));
+		success: function (response) {
+			resultsPlaceholder.html(template({'response':response}));
 		}
 		});
 }
@@ -83,7 +85,7 @@ function getmatchreq() {
 		$.ajax({
 		url: '/json/match/'+ currentuser +'/by_user',
 		success: function (response) {
-		resultsPlaceholder.html(template({'response':response}));
+			resultsPlaceholder.html(template({'response':response}));
 		}
 		});
 }
@@ -97,7 +99,7 @@ function getavailablematches(xurl) {
 		$.ajax({
 		url: xurl,
 		success: function (response) {
-		resultsPlaceholder.html(template({'response':response}));
+			resultsPlaceholder.html(template({'response':response}));
 		}
 		});
 }
@@ -111,7 +113,7 @@ function getLocations(xurl) {
 		$.ajax({
 		url: '/json/locations' ,
 		success: function (response) {
-		resultsPlaceholder.html(template({'response':response}));
+				resultsPlaceholder.html(template({'response':response}));
 		}
 		});
 }

@@ -57,7 +57,7 @@
 						<div class="form-group">	
 							<label class="col-md-4 control-label">Gender</label>
 							<div class="col-md-6">
-								<input type="radio" name="gender" value="m" <?php if ( $match->gender == 1) echo 'checked'?> >Male <input type="radio" name="gender" value="f" <?php if ($match->gender == 0) echo 'checked'?>>Female <input type="radio" name="gender" value="n" <?php if ( $match->gender == 3) echo 'checked'?> >Any
+								<input type="radio" name="gender" value="m" <?php if ( $match->gender == 'M') echo 'checked'?> >Male <input type="radio" name="gender" value="f" <?php if ($match->gender == 'F') echo 'checked'?>>Female <input type="radio" name="gender" value="n" <?php if ( $match->gender == 'N') echo 'checked'?> >Any
 							</div>
 						</div>
 

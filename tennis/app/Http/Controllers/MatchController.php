@@ -32,9 +32,10 @@ class MatchController extends Controller {
 			$matches  = $matches->where('gender' , '=' , $match->gender);
 		};
 		$matches = $matches->whereBetween('ranking', [($match->ranking - 1), ($match->ranking + 1)]);
-		$matches = $matches->whereBetween('open_date_time', [$match->open_date_time,  $match->close_date_time]);
-		$matches = $matches->whereBetween('close_date_time', [$match->open_date_time,  $match->close_date_time]);
-		$matches = $matches->get();
+
+		$matches = $matches->where('open_date_time', '<', $match->close_date_time)
+							->Where('close_date_time', '>', $match->open_date_time)
+							->get();
 		
 		return view('match.allmatch', ['matches' => $matches]);
 	}
@@ -43,19 +44,28 @@ class MatchController extends Controller {
 
 		$currentuser = Auth::user()->id;
 		$match = Match::where('id', '=', $id)->first();
-		$matches =Match::where('user_id' , '!=' , $currentuser );	//so not matches from current user	
+		$matches =Match::with('location')->with('user')->where('user_id' , '!=' , $currentuser );	//so not matches from current user	
 		$matches  = $matches->where('id' , '!=' , $match->id );		//remove the event we are finding matches for from the list
 		if($match->gender !=  'n'){	
 			$matches  = $matches->where('gender' , '=' , $match->gender);
 		};
-		$matches = $matches->whereBetween('ranking', [($match->ranking - 1), ($match->ranking + 1)]);			
-		$matches = $matches->whereBetween('open_date_time', [$match->open_date_time,  $match->close_date_time]);
-		$matches = $matches->whereBetween('close_date_time', [$match->open_date_time,  $match->close_date_time]);
-				
-		$matches = $matches->get();
+		$matches = $matches->whereBetween('ranking', [($match->ranking - 1), ($match->ranking + 1)]);
+
+		$matches = $matches->where('open_date_time', '<', $match->close_date_time)
+							->Where('close_date_time', '>', $match->open_date_time)
+							->get();
+			
 	
 		return  $matches;
+
+
+		// $users = DB::table('users')
+  //           ->join('contacts', 'users.id', '=', 'contacts.user_id')
+  //           ->join('orders', 'users.id', '=', 'orders.user_id')
+  //           ->select('users.*', 'contacts.phone', 'orders.price')
+  //           ->get();
 	}
+
 
 	public function viewAllByUser($id) {
 
@@ -63,6 +73,7 @@ class MatchController extends Controller {
 
 		return view('/match/allmatch',	['matches' => $match]);
 	}
+
 
 	public function jsonViewAllByUser($id) {
 
@@ -151,20 +162,22 @@ class MatchController extends Controller {
 	public function jsonChallenge() {
 
 		$currentuser = Auth::user()->id;
-		$matches = Match::where('user_id' , '=' , $currentuser );	//so not matches from current user	
-		$matches  = $matches->whereNotNull('opponent_id');		//remove the event we without an oppenent
-		$matches  = $matches->whereNull('confirmed');		//remove the non confirmed events 
-		$matches = $matches->get();
-
+		$matches = Match::with('location')->with('user')->where('user_id', $currentuser )	//so not matches from current user	
+			->where('opponent_id', '!=', '')		//remove the event we without an oppenent
+			->where('confirmed', '!=' , 1 )	//remove the non confirmed events 
+			->get();
 		return  $matches;
 	}
 
 	public function jsonConfirmed() {
 
-		$currentuser = Auth::user()->id;
-		$matches = Match::where('user_id' , '=' , $currentuser );	//so not matches from current user	
-		$matches  = $matches->whereNotNull('confirmed');		//get confirmed events 
-		$matches = $matches->get();
+		$matches = Match::with('location')->with('user')->where('confirmed', 1)
+			->orWhere(function ($query) {
+        		$query->where('user_id', Auth::user()->id )		//get confirmed events 
+					->Where('opponent_id', Auth::user()->id);
+				})	//so not matches from current user	
+			->get();
+
 
 		return  $matches;
 	}

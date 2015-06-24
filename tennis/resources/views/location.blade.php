@@ -7,11 +7,12 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading">Add Location</div>
+				<div class="panel-heading">Location</div>
 				<div class="panel-body">
-				<table>
+				<div id="matchrequests" class ="table-responsive">
+				<table class="table table-striped table-hover">
 
-						<tr>
+						<tr class="text-center">
 							<th>Name</th>
 							<th>Comment</th>
 							<th>Address</th>
@@ -24,7 +25,7 @@
 
 				
 					<tr>
-						<td><a href="location/{{$location->id}}">{{ $location->name }}</a></td>
+						<td>{{ $location->name }}</td>
 						<td>{{ $location->comment }}</td>
 						<td>{{ $location->address }}</td>
 						<td>{{ $location->city }}</td>
@@ -35,7 +36,7 @@
 						</td>
 						<td>
 							
-								<form action="/location/{{$location->id}}/delete" method="GET">
+								<form action="location/{{$location->id}}/delete" method="GET">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<button>Delete</button>
@@ -45,6 +46,7 @@
 					</tr>
 					
 				</table>
+				</div>
 				<div id="map"></div>
 				<a href="/location/create">Add Location</a><br>
 				<a href="/locations">List All Locations</a><br>
