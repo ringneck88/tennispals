@@ -22,6 +22,7 @@
 			<div class="panel panel-default shadow-outside">
 				<div class="panel-heading">I'm open for matches @</div>
 				<div class="panel-body">
+					<a href="#" onClick="window.open('/match/create','pagename','resizable,height=500,width=370,location=no'); return false;">New</a><br>
 					<a  class="btn btn-default btn-xs"role="button" data-toggle="collapse" href="#matchrequests" aria-expanded="false" aria-controls="collapseExample">Matches <i class="fa fa-caret-square-o-right"></i></a>
 					<div id="matchrequests" class ="table-responsive collapse"></div>
 				</div>
@@ -37,14 +38,13 @@
 			<div class="panel panel-default shadow-outside">
 				<div class="panel-heading">Available Matches</div>
 				<div class="panel-body">
-					<a href="#" onClick="window.open('/match/create','pagename','resizable,height=500,width=370,location=no'); return false;">New</a><br>
 					<a  class="btn btn-default btn-xs"role="button" data-toggle="collapse" href="#amatches" aria-expanded="false" aria-controls="collapseExample">Matches <i class="fa fa-caret-square-o-right"></i></a>
-					<div id="amatches" class ="table-responsive collapse"></div>
+					<div id="amatches" class ="table-responsive"></div>
 				</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>s
 </div>
 
 <div class="container">
@@ -54,7 +54,7 @@
 				<div class="panel-heading">Challenges</div>
 				<div class="panel-body">
 					<a  class="btn btn-default btn-xs"role="button" data-toggle="collapse" href="#challenges" aria-expanded="false" aria-controls="collapseExample">Matches <i class="fa fa-caret-square-o-right"></i></a>
-					<div id="challenges" class ="table-responsive  collapse"></div>
+					<div id="challenges" class ="table-responsive "></div>
 				</div>
 				</div>
 			</div>
@@ -172,7 +172,7 @@
 				<a href="#" onClick="window.open('/match/@{{id}}/update','pagename','resizable,height=500,width=370,location=no'); return false;"><i class="fa fa-pencil"></i></a>
 			</td>
 			<td>
-				<a href="/ajax/match/@{{id}}/delete" id = "mtrqdelete" class="trash"; ><i class="fa fa-trash-o"></i></a> 
+				<a href="/ajax/match/@{{id}}/delete" id = "mtrqdelete" class="trash" onclick="return confirm('Are you sure you want to delete this item?');" ><i class="fa fa-trash-o"></i></a> 
 			</td>
 		</tr>
 		
@@ -254,7 +254,7 @@
 					<td>@{{ zip }}</td>
 					<td>@{{ lat }}</td>
 					<td>@{{ long }}</td>
-					<td><a href="/location@/@{{id}}/update">Edit</a></td>
+					<td><a href="/location/@{{id}}/update">Edit</a></td>
 					<td>
 						
 						<form action="location/@{{id}}/delete" method="GET">

@@ -1,10 +1,15 @@
 $(function () {
 
-	comfirmed();
-	getmatchreq();
-	getLocations();
-	getChallenges();
-   
+
+	// comfirmed();
+	// getmatchreq();
+	// getLocations();
+	// getChallenges();
+
+   // ***********************************
+   // Load accepted Challenges
+   // ***********************************
+
     $(document).on("click", "a.acptchallenge", function(e) {
 	    e.preventDefault();
 		var xurl = $(this).attr('href');
@@ -18,12 +23,20 @@ $(function () {
 	});
 	});
 
+	// ***********************************
+   // Load accepted found matches Challenges
+   // ***********************************
+
 	$(document).on("click", "a.find", function(e) {
 		
 	    e.preventDefault();
 		var xurl = $(this).attr('href');
 		getavailablematches(xurl);
 	});
+
+	// ***********************************
+   // delere event
+   // ***********************************
 
 	$(document).on("click", "a.trash", function(e) {
 	    e.preventDefault();

@@ -9,7 +9,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Location</div>
 				<div class="panel-body">
-				<div id="matchrequests" class ="table-responsive">
+				<div class ="table-responsive">
 				<table class="table table-striped table-hover">
 
 						<tr class="text-center">
@@ -35,13 +35,13 @@
 								<a href="/location/{{$location->id}}/update">Edit</a>
 						</td>
 						<td>
-							
-								<form action="location/{{$location->id}}/delete" method="GET">
+								<a href="location/{{$location->id}}/delete" id = "mtrqdelete" class="trash" onclick="return confirm('Are you sure you want to delete this item?');" ><i class="fa fa-trash-o"></i></a>
+							{{-- 	<form action="location/{{$location->id}}/delete" method="GET">
 									<input type="hidden" name="_method" value="DELETE">
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<button>Delete</button>
 								</form>
-						
+						 --}}
 						</td>
 					</tr>
 					

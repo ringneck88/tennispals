@@ -52,7 +52,7 @@ class MatchController extends Controller {
 		$matches = $matches->whereBetween('ranking', [($match->ranking - 1), ($match->ranking + 1)]);
 
 		$matches = $matches->where('open_date_time', '<', $match->close_date_time)
-							->Where('close_date_time', '>', $match->open_date_time)
+							->orWhere('close_date_time', '>', $match->open_date_time)
 							->get();
 			
 	
@@ -145,6 +145,7 @@ class MatchController extends Controller {
 		$match = Match::find($id);		
 		$match->match_date = Request::input('match_date_time');
 		$match->opponent_id =  Auth::user()->id;
+		$match->confirmed =  0;
 		$match->save();
 
 		return redirect('home');
@@ -175,7 +176,7 @@ class MatchController extends Controller {
 			->orWhere(function ($query) {
         		$query->where('user_id', Auth::user()->id )		//get confirmed events 
 					->Where('opponent_id', Auth::user()->id);
-				})	//so not matches from current user	
+				})
 			->get();
 
 
